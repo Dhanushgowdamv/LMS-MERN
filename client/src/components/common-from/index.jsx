@@ -1,14 +1,20 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 
 
 import React from 'react'
 import { Button } from '../ui/button'
-import FormControls from './formcontrol'
+import FormControls from './Controllerform'
 
-function CommonForm({handleSubmit,buttonText ,formControls = [], formData, setFormData}) {
+
+function CommonForm({handleSubmit,
+  buttonText ,
+  formControl = [], 
+  formData ,
+  setFormData}) {
   return (
     <form onSubmit={handleSubmit}>
-    <FormControls  formControls={formControls} formData={formData} setFormData={setFormData}/>
+    <FormControls formControl={formControl} formData={formData} setFormData={setFormData}/>
         <Button type='submit'>{buttonText || "submit"}</Button>
 
     </form>

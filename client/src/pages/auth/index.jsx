@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
+
 import CommonForm from "@/components/common-from";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { signUpFormControls } from "@/config";
 import { Authcontext } from "@/context/auth.context";
 import {  GraduationCap } from "lucide-react";
 import React, { useContext, useState } from "react";
@@ -35,8 +37,13 @@ const Authpage = () => {
                 <TabsTrigger value='signin'>signin</TabsTrigger>
                 <TabsTrigger value='signup'>signup</TabsTrigger>
               </TabsList>
-              <TabsContent value='signin'>signin</TabsContent>
-              <TabsContent value='signup'>signup</TabsContent>
+              <TabsContent value='signin'>
+              sigin
+              </TabsContent>
+              <TabsContent value='signup'>
+                <CommonForm 
+                formControl={signUpFormControls}/>
+              </TabsContent>
 
               
             </Tabs>

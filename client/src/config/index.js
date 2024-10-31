@@ -1,4 +1,4 @@
-const signUpFormControls =[ {
+ export const signUpFormControls =[ {
     name:'username',
     label:'user name',
     placeholder:'enter the user name',
