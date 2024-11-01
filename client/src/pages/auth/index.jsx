@@ -2,7 +2,7 @@
 
 import CommonForm from "@/components/common-from";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { signUpFormControls } from "@/config";
+import { signInFormControls, signUpFormControls } from "@/config";
 import { Authcontext } from "@/context/auth.context";
 import {  GraduationCap } from "lucide-react";
 import React, { useContext, useState } from "react";
@@ -28,26 +28,26 @@ const Authpage = () => {
       <span className=" font-extrabold">LMS LERN</span>
       </Link>
     </header>
-    <div className="flex items-center justify-center">
-      <Tabs value={activeTab}
-            defaultValue="sigin"
-            onValueChange={handleTabchange}
-            className="w-full max-w-md ">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value='signin'>signin</TabsTrigger>
-                <TabsTrigger value='signup'>signup</TabsTrigger>
-              </TabsList>
-              <TabsContent value='signin'>
-              sigin
-              </TabsContent>
-              <TabsContent value='signup'>
-                <CommonForm 
-                formControl={signUpFormControls}/>
-              </TabsContent>
+    <div className="flex items-center justify-center h-screen">
+  <Tabs value={activeTab}
+        defaultValue="sigin"
+        onValueChange={handleTabchange}
+        className="w-full max-w-md ">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value='signin'>signin</TabsTrigger>
+            <TabsTrigger value='signup'>signup</TabsTrigger>
+          </TabsList>
+          <TabsContent value='signin'>
+          <CommonForm 
+            formControl={signInFormControls}/>
+          </TabsContent>
+          <TabsContent value='signup'>
+            <CommonForm 
+            formControl={signUpFormControls}/>
+          </TabsContent>
+  </Tabs>
+</div>
 
-              
-            </Tabs>
-    </div>
    </div>
   )
 }

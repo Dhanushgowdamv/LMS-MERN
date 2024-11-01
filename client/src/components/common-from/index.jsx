@@ -15,7 +15,7 @@ function CommonForm({handleSubmit,
   return (
     <form onSubmit={handleSubmit}>
     <FormControls formControl={formControl} formData={formData} setFormData={setFormData}/>
-        <Button type='submit'>{buttonText || "submit"}</Button>
+        <Button type='submit' className="mt-5 w-full">{buttonText || "submit"}</Button>
 
     </form>
   )
