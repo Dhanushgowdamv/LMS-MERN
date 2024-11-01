@@ -1,5 +1,5 @@
  export const signUpFormControls =[ {
-    name:'username',
+    name:'userName',
     label:'user name',
     placeholder:'enter the user name',
     type:'text',
@@ -7,7 +7,7 @@
 },
 //email
 {
-    name:'email',
+    name:'userEmail',
     label:'user email',
     placeholder:'enter the user email',
     type:'email',
@@ -25,7 +25,7 @@
 export const signInFormControls =[ 
 //email
 {
-    name:'email',
+    name:'userEmail',
     label:'user email',
     placeholder:'enter the user email',
     type:'email',
@@ -40,3 +40,14 @@ export const signInFormControls =[
     componentType:'input'
 },
 ]
+
+export const initialSigInFormData ={
+    userEmail:"",
+    password:""
+}
+
+export const initialSigupFormData ={
+    userName:"",
+    userEmail:"",
+    password:""
+}

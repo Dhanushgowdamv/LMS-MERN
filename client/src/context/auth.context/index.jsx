@@ -1,8 +1,20 @@
 /* eslint-disable react/prop-types */
-import { createContext } from "react";
+import { initialSigInFormData, initialSigupFormData } from "@/config";
+import { createContext, useState } from "react";
 
 export const Authcontext = createContext(null);
 
 export default function AuthProvider({ children }) {
-  return <Authcontext.Provider value={{}}>{children}</Authcontext.Provider>;
+
+const [signInFormData,setSignInFormData] = useState(initialSigInFormData)
+const[signUPFormData,setSignUPFormData] = useState( initialSigupFormData)
+
+
+  return <Authcontext.Provider value={{
+    signInFormData,
+    setSignInFormData,
+    signUPFormData,
+    setSignUPFormData
+
+  }}>{children}</Authcontext.Provider>;
 }

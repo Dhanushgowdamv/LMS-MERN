@@ -10,7 +10,8 @@ import { Textarea } from "../ui/textarea";
 
 function FormControls({ formControl= [], formData, setFormData }) {
   function renderComponentByType(getControleItem) {
-    let element;  
+    let element= null;
+    const currentControlValue = formData[getControleItem.name] ||   ''
     switch (getControleItem.componentType) {
       case 'input':
         element = (
@@ -19,13 +20,23 @@ function FormControls({ formControl= [], formData, setFormData }) {
             name={getControleItem.name}
             placeholder={getControleItem.placeholder}
             type={getControleItem.type}
+            value={currentControlValue}
+            onChange={(event)=> setFormData({
+              ...formData,
+              [getControleItem.name] : event.target.value
+            })}
           />
         );
         break;
 
       case 'select':
         element = (
-          <Select>
+          <Select
+          onValueChange={(value)=> setFormData({
+            ...formData,
+            [getControleItem.name]:value
+          })}
+          value={ currentControlValue }>
             <SelectTrigger className="w-full">
               <SelectValue placeholder={getControleItem.label} />
             </SelectTrigger>
@@ -48,6 +59,11 @@ function FormControls({ formControl= [], formData, setFormData }) {
             id={getControleItem.name}
             name={getControleItem.name}
             placeholder={getControleItem.placeholder}
+            value={ currentControlValue }
+            onChange={(event)=> setFormData({
+              ...formData,
+              [getControleItem.name] : event.target.value
+            })}
           />
         );
         break;
@@ -59,6 +75,11 @@ function FormControls({ formControl= [], formData, setFormData }) {
             name={getControleItem.name}
             placeholder={getControleItem.placeholder}
             type={getControleItem.type}
+            value={ currentControlValue }
+            onChange={(event)=> setFormData({
+              ...formData,
+              [getControleItem.name] : event.target.value
+            })}
           />
         );
         break;
