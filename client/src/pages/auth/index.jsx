@@ -15,6 +15,7 @@ const Authpage = () => {
     setSignInFormData,
     signUPFormData,
     setSignUPFormData,
+    handleRegisterUser
     
 
   } = useContext(Authcontext)
@@ -78,6 +79,7 @@ const Authpage = () => {
             formData={signUPFormData}
             setFormData={setSignUPFormData}
             isbuttonDisabled={!checkIfSignUPFormIsValid()}
+            handleSubmit={handleRegisterUser}
             />
             
             </CardContent>
