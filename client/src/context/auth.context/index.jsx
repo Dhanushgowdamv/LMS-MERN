@@ -18,15 +18,24 @@ export default function AuthProvider({ children }) {
   // Register user
   async function handleRegisterUser(event) {
     event.preventDefault();
-    const data = await RegisterService(signUPFormData);
-    console.log(data, "teytdu");
+    try {
+      const data = await RegisterService(signUPFormData);
+      // Handle success and error accordingly
+      if (data.success) {
+        // Add success handling if needed
+      } else {
+        setError(data.message || "Registration failed");
+      }
+    } catch (err) {
+      setError("An error occurred during registration");
+    }
   }
 
   // Login user
   async function handleLoginUser(event) {
     event.preventDefault();
     const data = await loginService(signInFormData);
-    console.log(data);
+    console.log(data,"gfjh");
 
     if (data.success) {
       sessionStorage.setItem("accessToken", JSON.stringify(data.data.accessToken));
